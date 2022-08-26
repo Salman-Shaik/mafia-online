@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-export const createGame = ({setCurrentPage}) => {
-  return <div>
-  <main>
-  </main>
-  </div>
-}
+export const createGame = ({ setCurrentPage }) => {
+  return (
+    <div>
+      <main></main>
+    </div>
+  );
+};

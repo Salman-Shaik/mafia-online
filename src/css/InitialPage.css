@@ -1,4 +1,4 @@
-.initial_page{
+.initial_page {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,18 +7,18 @@
   align-items: center;
 }
 
-.initial_page_header{
+.initial_page_header {
   width: 100vw;
   height: 16vh;
 }
 
-.initial_page_header h2{
+.initial_page_header h2 {
   color: #222222;
   font-size: 6vw;
   margin: 0 !important;
 }
 
-.initial_page_main{
+.initial_page_main {
   width: 100vw;
   height: 60vh;
   display: flex;
@@ -28,7 +28,9 @@
   margin-bottom: 6vh;
 }
 
-.initial_page_name, .initial_page_theme, .initial_page_button {
+.initial_page_name,
+.initial_page_theme,
+.initial_page_button {
   font-size: 3vw;
   padding: 6px;
   color: white;
@@ -47,11 +49,11 @@
   visibility: visible;
 }
 
-.initial_page_name{
-    width: 49vw;
+.initial_page_name {
+  width: 49vw;
 }
 
-.initial_page_join{
+.initial_page_join {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -59,7 +61,7 @@
   width: 50vw;
 }
 
-.initial_page_join input{
+.initial_page_join input {
   font-size: 3vw;
   text-align: center;
   padding: 6px;
@@ -70,7 +72,7 @@
   width: 24vw;
 }
 
-.initial_page_join button{
+.initial_page_join button {
   font-size: 3vw;
   padding: 6px;
   border: 2px solid #444444;
@@ -79,58 +81,68 @@
 }
 
 .initial_page_button {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   font-weight: 400;
   text-transform: unset !important;
 }
 
 .create {
-   background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: #222222;
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
-   border: none;
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #dd2476 51%,
+    #ff512f 100%
+  );
+  padding: 6px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #222222;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  border: none;
 }
 
 .create:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 .join {
-   background-image: linear-gradient(to right, #4776E6 0%, #8E54E9  51%, #4776E6  100%);
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: #222222;
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
-   border: none;
- }
+  background-image: linear-gradient(
+    to right,
+    #4776e6 0%,
+    #8e54e9 51%,
+    #4776e6 100%
+  );
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #222222;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  border: none;
+}
 
- .join:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
+.join:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
- .small_button{
-   border: none !important;
-   font-family: 'Roboto Slab', serif;
-   font-weight: 400;
-   text-transform: unset !important;
- }
+.small_button {
+  border: none !important;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  text-transform: unset !important;
+}
 
- select:focus{
+select:focus {
   border: 2px solid #444444;
- }
+}
