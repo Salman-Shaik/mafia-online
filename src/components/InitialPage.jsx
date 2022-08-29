@@ -42,7 +42,7 @@ export const InitialPage = ({
           />
           <button
             className="join small_button"
-            onclick={() => setCurrentPage("joinGame")}
+            onClick={() => setCurrentPage("joinGame")}
           >
             Join
           </button>
