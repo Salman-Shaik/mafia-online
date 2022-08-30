@@ -53,9 +53,13 @@ export const Dashboard = ({ gameId }) => {
         <h2>Players</h2>
         <section className="dashboard_players_list">
           {players.map((player, index) => {
-            <h4 className={"dashboard_player" + `gradient_${(index + 1) % 6}`}>
-              {player.name}
-            </h4>;
+            return (
+              <h4
+                className={"dashboard_player " + `gradient_${(index + 1) % 6}`}
+              >
+                {player.name}
+              </h4>
+            );
           })}
         </section>
         <button

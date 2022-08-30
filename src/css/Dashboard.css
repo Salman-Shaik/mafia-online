@@ -67,7 +67,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: center;
+  align-content: flex-start;
   justify-content: center;
   width: 60vw;
 }
@@ -222,4 +222,80 @@
 
 .dashboard_player {
   margin: 1.5vw;
+}
+
+/*laptop*/
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+  .dashboard_header h2 {
+    font-size: 2.2em;
+  }
+
+  .dashboard_ready_label {
+    font-size: 1.8em;
+  }
+
+  .dashboard_player {
+    font-size: 1.5em;
+  }
+
+  .dashboard_button {
+    font-size: 2em;
+    width: 30vw;
+    margin-top: 30px;
+  }
+
+  .dashboard_players_list {
+    width: 95vw;
+  }
+}
+
+/*mobile*/
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
+  .dashboard_header h2 {
+    font-size: 1.8em;
+  }
+
+  .dashboard_ready_label {
+    font-size: 1.5em;
+  }
+
+  .dashboard_player {
+    font-size: 1.2em;
+  }
+
+  .dashboard_button {
+    font-size: 1.8em;
+    width: 70vw;
+    margin-top: 50px;
+  }
+
+  .dashboard_players_list {
+    width: 95vw;
+    overflow-y: scroll;
+  }
+}
+
+/*ipad*/
+@media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (min-device-width: 768px) and (max-device-width: 1007px) {
+  .dashboard_header h2 {
+    font-size: 3em;
+  }
+
+  .dashboard_ready_label {
+    font-size: 2em;
+  }
+
+  .dashboard_player {
+    font-size: 1.6em;
+  }
+
+  .dashboard_button {
+    font-size: 2em;
+    width: 50vw;
+    margin-top: 50px;
+  }
+
+  .dashboard_players_list {
+    width: 95vw;
+  }
 }
