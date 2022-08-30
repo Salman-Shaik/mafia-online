@@ -25,3 +25,13 @@ export const getPlayers = async (gameId, setPlayers) => {
     .then((body) => setPlayers(body.players))
     .catch((e) => new TypeError(e));
 };
+
+export const joinGame = async (playerName, gameId) => {
+  await fetch("/joinGame", {
+    method: "post",
+    body: JSON.stringify({ playerName, gameId }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).catch((e) => new TypeError(e));
+};

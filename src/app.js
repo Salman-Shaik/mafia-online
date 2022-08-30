@@ -42,6 +42,14 @@ app.post("/createGame", (req, res) => {
   res.json({ gameId });
 });
 
+app.post("/joinGame", (req, res) => {
+  const games = req.app.games;
+  const { playerName, gameId } = JSON.parse(JSON.stringify(req.body));
+  const game = games.getGame(gameId);
+  game.setPlayer(playerName);
+  res.end();
+});
+
 app.get("/players", (req, res) => {
   const games = req.app.games;
   const gameId = req.query.gameId;

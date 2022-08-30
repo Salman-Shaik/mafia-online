@@ -7,7 +7,7 @@ class Game {
     this.players = [host];
   }
 
-  setParticipant(name) {
+  setPlayer(name) {
     const player = new Player(name, false);
     this.players.push(player);
   }

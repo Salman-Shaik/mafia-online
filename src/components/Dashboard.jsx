@@ -6,7 +6,7 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import "../css/Dashboard.css";
 
-export const Dashboard = ({ gameId }) => {
+export const Dashboard = ({ gameId, playerName }) => {
   const [players, setPlayers] = useState([]);
   const [isPlayerReady, setIsPlayerReady] = useState(false);
 
@@ -14,10 +14,14 @@ export const Dashboard = ({ gameId }) => {
     if (_.isEmpty(players)) {
       await getPlayers(gameId, setPlayers);
     }
+    setInterval(async () => await getPlayers(gameId, setPlayers), 1000);
   }, [setPlayers, gameId]);
 
   const toggleIsPlayerReady = () => setIsPlayerReady(!isPlayerReady);
-
+  const isCurrentPlayerHost = () => {
+    const currentPlayer = players.find((player) => player.name === playerName);
+    return !currentPlayer ? false : currentPlayer.isHost;
+  };
   return (
     <div className="dashboard">
       <header className="dashboard_header">
@@ -62,13 +66,15 @@ export const Dashboard = ({ gameId }) => {
             );
           })}
         </section>
-        <button
-          className="dashboard_button"
-          disabled={players.length < 6 || players.length > 20}
-          onClick={() => console.log("HI")}
-        >
-          Start Game
-        </button>
+        {isCurrentPlayerHost() && (
+          <button
+            className="dashboard_button"
+            disabled={players.length < 6 || players.length > 20}
+            onClick={() => console.log("HI")}
+          >
+            Start Game
+          </button>
+        )}
       </main>
     </div>
   );

@@ -8,6 +8,7 @@ export const InitialPage = ({
   setGameId,
   setTheme,
   onCreate,
+  onJoin,
   playerName,
   theme,
   gameId,
@@ -50,8 +51,8 @@ export const InitialPage = ({
           />
           <button
             className="join small_button"
-            onClick={() => setCurrentPage("joinGame")}
-            disabled={_.isEmpty(gameId)}
+            onClick={onJoin}
+            disabled={_.isEmpty(gameId) || _.isEmpty(playerName)}
           >
             Join
           </button>

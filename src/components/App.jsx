@@ -9,7 +9,7 @@ import {
 } from "../util/lib.js";
 import { InitialPage } from "./InitialPage.jsx";
 import { Dashboard } from "./Dashboard.jsx";
-import { createGameAndFetchId } from "../util/networkCalls.js";
+import { createGameAndFetchId, joinGame } from "../util/networkCalls.js";
 import _ from "lodash";
 
 function App() {
@@ -24,9 +24,16 @@ function App() {
     setCurrentPage("dashboard");
   };
 
+  const onJoin = async () => {
+    await joinGame(playerName, gameId);
+    setCurrentPage("dashboard");
+  };
+
   return (
     <div className={"App " + getTheme(theme)}>
-      {currentPage === "dashboard" && <Dashboard gameId={gameId} />}
+      {currentPage === "dashboard" && (
+        <Dashboard gameId={gameId} playerName={playerName} />
+      )}
       {currentPage === "initial" && (
         <InitialPage
           setCurrentPage={setCurrentPage}
@@ -34,6 +41,7 @@ function App() {
           setGameId={setGameId}
           setTheme={setTheme}
           onCreate={createGame}
+          onJoin={onJoin}
           playerName={playerName}
           theme={theme}
           gameId={gameId}
