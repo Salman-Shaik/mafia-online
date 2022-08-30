@@ -15,6 +15,10 @@ class Game {
   getPlayers() {
     return this.players;
   }
+
+  getTheme() {
+    return this.theme;
+  }
 }
 
 module.exports = Game;

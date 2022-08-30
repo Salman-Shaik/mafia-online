@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export const getMafiaCount = (numberOfPlayers) =>
   Math.floor(numberOfPlayers / 3);
 export const getDoctorCount = (numberOfPlayers) => {
@@ -19,3 +21,17 @@ export const getTheme = (theme) =>
     : theme === "got"
     ? "got_theme"
     : "minecraft_theme";
+
+export const getCookieValue = (cookieString) => {
+  const cookies = document.cookie.split("; ");
+  const cookiesObj = {};
+  cookies.forEach((cookie) => {
+    const [key, val] = cookie.split("=");
+    cookiesObj[key] = val;
+  });
+  const cookieValue = cookiesObj[cookieString];
+  return !cookieValue ? "" : cookieValue;
+};
+
+export const getDefaultPage = (playerName, gameId) =>
+  _.isEmpty(playerName) && _.isEmpty(gameId) ? "initial" : "dashboard";

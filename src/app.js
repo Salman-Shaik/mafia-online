@@ -39,6 +39,9 @@ app.post("/createGame", (req, res) => {
   const gameId = getGameId(6);
   const game = new Game(host, theme);
   games.setGame(gameId, game);
+  res.cookie("playerName", host);
+  res.cookie("gameId", gameId);
+  res.cookie("theme", theme);
   res.json({ gameId });
 });
 
@@ -47,12 +50,16 @@ app.post("/joinGame", (req, res) => {
   const { playerName, gameId } = JSON.parse(JSON.stringify(req.body));
   const game = games.getGame(gameId);
   game.setPlayer(playerName);
+  const theme = game.getTheme();
+  res.cookie("playerName", playerName);
+  res.cookie("gameId", gameId);
+  res.cookie("theme", theme);
   res.end();
 });
 
 app.get("/players", (req, res) => {
   const games = req.app.games;
-  const gameId = req.query.gameId;
+  const { gameId } = req.cookies;
   const players = games.getPlayers(gameId);
   res.json({ players });
 });

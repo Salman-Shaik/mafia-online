@@ -6,6 +6,8 @@ import {
   getDoctorCount,
   getPoliceCount,
   getTheme,
+  getCookieValue,
+  getDefaultPage,
 } from "../util/lib.js";
 import { InitialPage } from "./InitialPage.jsx";
 import { Dashboard } from "./Dashboard.jsx";
@@ -14,10 +16,12 @@ import _ from "lodash";
 
 function App() {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);
-  const [currentPage, setCurrentPage] = useState("initial");
-  const [playerName, setPlayerName] = useState("");
-  const [gameId, setGameId] = useState("");
-  const [theme, setTheme] = useState("");
+  const [playerName, setPlayerName] = useState(getCookieValue("playerName"));
+  const [gameId, setGameId] = useState(getCookieValue("gameId"));
+  const [theme, setTheme] = useState(getCookieValue("theme"));
+  const [currentPage, setCurrentPage] = useState(
+    getDefaultPage(playerName, gameId)
+  );
 
   const createGame = async () => {
     await createGameAndFetchId(playerName, theme, setGameId);
