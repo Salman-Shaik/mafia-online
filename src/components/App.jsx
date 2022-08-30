@@ -10,13 +10,14 @@ import {
 import { InitialPage } from "./InitialPage.jsx";
 import { Dashboard } from "./Dashboard.jsx";
 import { createGameAndFetchId } from "../util/networkCalls.js";
+import _ from "lodash";
 
 function App() {
   const [numberOfPlayers, setNumberOfPlayers] = useState(0);
   const [currentPage, setCurrentPage] = useState("initial");
   const [playerName, setPlayerName] = useState("");
   const [gameId, setGameId] = useState("");
-  const [theme, setTheme] = useState("basic");
+  const [theme, setTheme] = useState("");
 
   const createGame = async () => {
     await createGameAndFetchId(playerName, theme, setGameId);
@@ -33,6 +34,9 @@ function App() {
           setGameId={setGameId}
           setTheme={setTheme}
           onCreate={createGame}
+          playerName={playerName}
+          theme={theme}
+          gameId={gameId}
         />
       )}
     </div>

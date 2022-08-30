@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/InitialPage.css";
+import _ from "lodash";
 
 export const InitialPage = ({
   setCurrentPage,
@@ -7,6 +8,9 @@ export const InitialPage = ({
   setGameId,
   setTheme,
   onCreate,
+  playerName,
+  theme,
+  gameId,
 }) => {
   return (
     <div className="initial_page">
@@ -31,7 +35,11 @@ export const InitialPage = ({
           <option value="minecraft">Minecraft</option>
           <option value="got">Game of Thrones</option>
         </select>
-        <button className="initial_page_button create" onClick={onCreate}>
+        <button
+          className="initial_page_button create"
+          onClick={onCreate}
+          disabled={_.isEmpty(theme) || _.isEmpty(playerName)}
+        >
           Create Game
         </button>
         <section className={"initial_page_join"}>
@@ -43,6 +51,7 @@ export const InitialPage = ({
           <button
             className="join small_button"
             onClick={() => setCurrentPage("joinGame")}
+            disabled={_.isEmpty(gameId)}
           >
             Join
           </button>
